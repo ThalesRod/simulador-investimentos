@@ -3,66 +3,66 @@ $(function() {
     start();
 
     function start(){
-        $("#tela_2").hide();
-        generateContribuitionDates();
+        $("#screen2").hide();
+        generateContribuitionTimeOptions();
     }
 
-    function mudarTela(){
-        $("#tela_1").toggle("slow");
-        $("#tela_2").toggle("slow");
+    function changeScreen(){
+        $("#screen1").toggle("slow");
+        $("#screen2").toggle("slow");
     }
 
-    function generateContribuitionDates() {
-        for (let i = 1; i <= 60; i++) {
-            const value = i;
-            const text = Math.floor(i / 12) != 0
-                            ? Math.floor(i / 12) + " anos e " + i % 12 + " meses"
-                            : i % 12 + " meses";
+    function generateContribuitionTimeOptions() {
+        for (let months = 1; months <= 60; months++) {
+            const value = months;
+            const text = Math.floor(months / 12) != 0
+                            ? Math.floor(months / 12) + " anos e " + months % 12 + " meses"
+                            : months % 12 + " meses";
             
             const optionElement = $("<option></option>");
             optionElement.val(value);
             optionElement.text(text);
 
-            $("#tempo").append(optionElement);
+            $("#contributionTime").append(optionElement);
         }
     }
 
-    $("#entradaForm").on("submit",function() { 
+    $("#inputForm").on("submit", function() { 
 
-        const nome = $("#nome").val();
-        const mensalidade = $("#mensalidade").val();
-        const tempoContribuicao = $("#tempo").val();
-        const tempoContribuicaoFormatado = $(`#tempo option[value='${tempoContribuicao}']`).text();
-        const taxaJuros = 0.517 / 100;
+        const name = $("#name").val();
+        const payment = $("#payment").val();
+        const contributionTime = $("#contributionTime").val();
+        const contributionTime_formatted = $(`#contributionTime option[value='${contributionTime}']`).text();
+        const interestRate = 0.517 / 100;
 
-        // Checking the input
-        if (nome === "" || nome === undefined){
+        // Validating the input
+        if (name === "" || name === undefined){
             return 0;
         }
-        if (parseFloat(mensalidade) <= 0 || isNaN(parseFloat(mensalidade))){
+        if (parseFloat(payment) <= 0 || isNaN(parseFloat(payment))){ // Checking if payment it's a number and if it's positive
             return 0;
         }
 
-        const expressao = `${mensalidade} * (((1 + ${taxaJuros})
-        ^ ${tempoContribuicao} - 1) / ${taxaJuros})`;
+        const expression = `${payment} * (((1 + ${interestRate})
+        ^ ${contributionTime} - 1) / ${interestRate})`;
 
-        function formataSaida(dados){
+        function formatOutput(data){
             // Formatting for float with 2 decimals places and
             // formatting periods to commas
-            let resultado = parseFloat(dados["result"]);
-            resultado = resultado.toFixed(2);
-            resultado = resultado.replace(".", ",");
+            let result = parseFloat(data["result"]);
+            result = result.toFixed(2);
+            result = result.replace(".", ",");
 
-            let mensalidadeFormatada = parseFloat(mensalidade);
-            mensalidadeFormatada = mensalidadeFormatada.toFixed(2);
-            mensalidadeFormatada = mensalidadeFormatada.replace(".", ",");
+            let payment_formatted = parseFloat(payment);
+            payment_formatted = payment_formatted.toFixed(2);
+            payment_formatted = payment_formatted.replace(".", ",");
 
             // Formatting the query of the output
-            const saida = `Olá ${nome}, juntando R$ ${mensalidadeFormatada} todo mês,
-            você terá R$ ${resultado} em ${tempoContribuicaoFormatado}.`;
+            const output = `Olá ${name}, juntando R$ ${payment_formatted} todo mês,
+            você terá R$ ${result} em ${contributionTime_formatted}.`;
     
-            $("#saida").text(saida);
-            $("#mensalidade").val("");    
+            $("#outputText").text(output);
+            $("#payment").val("");    
         }
 
         $.ajax({
@@ -71,19 +71,19 @@ $(function() {
             dataType: 'json',
             contentType: 'application/json',
 
-            data: JSON.stringify( { "expr": expressao } ),
+            data: JSON.stringify( { "expr": expression } ),
 
-            success: formataSaida,
+            success: formatOutput,
 
             error: function (resp) {
-                $("#saida").text("Parece que algo deu errado! Por favor, simule novamente.");
+                $("#outputText").text("Parece que algo deu errado! Por favor, simule novamente.");
             }
         });
 
-        mudarTela();
+        changeScreen();
                                               
     });
 
-    $("#simularNovamente").on("click", mudarTela);
+    $("#simulateAgain").on("click", changeScreen);
 
 })
