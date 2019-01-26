@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ciclic</title>
+
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="static/js/index.js"></script>
+
+</head>
+
+<body>
+
+<div class="cabecalho">
+    <h2 class="titulo">Ciclic</h2>
+</div>
+
+<div id="tela_1" class="tela">
+
+    <form id="entradaForm" action="/" method="post">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" required>
+    
+        <label for="mensalidade">Mensalidade R$</label>
+        <input type="number" id="mensalidade" min="0.1" step="0.1">
+    
+        <label for="tempo">Tempo de contribuição</label>
+        <select id="tempo">
+            <option value="3">3 meses</option>
+            <option value="6">6 meses</option>
+            <option value="9">9 meses</option>
+            <option value="24">2 anos</option>
+        </select>
+    
+        <input id="simular" type="button" value="Simular">
+    </form>
+    
+</div>    
+
+<div id="tela_2" class="tela">
+    <span id="saida"></span>
+
+    <input id="simularNovamente" type="button" value="Simular Novamente">
+
+</div>
+
+
+</body>
+
+
+</html>
