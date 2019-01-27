@@ -6,10 +6,6 @@ body {
   padding: 10%;
 }
 
-#header {
-  display: none;
-  background-color: #0984e3;
-}
 .card .card-header {
   background-color: #ff7675;
 }
@@ -39,11 +35,6 @@ body {
 
 .btn:focus {
   background-color: #d63031;
-}
-
-#headerTitle {
-  color: #FFF;
-  font-weight: bold;
 }
 
 #simuladorTitle {
