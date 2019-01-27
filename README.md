@@ -17,9 +17,9 @@ unzip master.zip
 
 ## Como usar?
 
-Acesse a aplicação através [desse link](https://simulador-investimentos.github.io/) por qualquer dispositivo.
+Acesse a aplicação através [desse link](https://thalesrod.github.io/simulador-investimentos) por qualquer dispositivo.
 
-https://simulador-investimentos.github.io/
+https://thalesrod.github.io/simulador-investimentos
 
 Ou,
 
