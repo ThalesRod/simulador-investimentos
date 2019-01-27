@@ -3,16 +3,28 @@ body {
 }
 
 .container {
-  padding: 10%;
+  padding: 5vh;
+}
+
+@media (min-height: 580px){
+  .container {
+    padding: 10vh;
+  } 
 }
 
 .card .card-header {
   background-color: #ff7675;
 }
 
+@media (max-height: 580px) and (orientation: landscape) {
+  .card .card-header {
+    display: none;
+  }
+}
+
 #formCard {
   border-width: 0;
-  box-shadow: -1vh 1vh 20px;
+  box-shadow: -1vh 1vh 20px #383e41;
 }
 
 #formCard label {
