@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ciclic</title>
+    <title>Simulador de Investimentos</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/index.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -15,34 +16,60 @@
 
 <body>
 
-<div id="header">
-    <h2 id="title">Ciclic</h2>
+<div id="header" class="page-header text-center">
+    <h2 id="headerTitle">Ciclic</h2>
 </div>
 
-<div id="screen1">
-
+<div id="screen1" class="container">
     <form id="inputForm" action="javascript:void(0);" method="POST">
-        <label for="name">Nome</label>
-        <input id="name" type="text" required>
-    
-        <label for="payment">Mensalidade R$</label>
-        <input type="number" id="payment" placeholder="Ex.: 20,00" min="1" step="0.50" required>
-        <span class="validity"></span>
-
-        <label for="contributionTime">Tempo de contribuição</label>
-        <select id="contributionTime">
-            <!-- Options added by JavaScript function generateContribuitionDates() -->
-        </select>
-    
-        <input id="simulate" type="submit" value="Simular">
+        <div id="formCard" class="card">
+            <div class="card-header text-center">
+                <h5 id="simuladorTitle">Simulador</h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-5 col-form-label">Nome</label>
+                    <div class="col-sm-7">
+                        <input id="name" class="form-control" type="text" required>
+                    </div>    
+                </div>
+                <hr />
+                <div class="form-group row">  
+                    <label for="payment" class="col-sm-5 col-form-label">Mensalidade</label>
+                    <div class="col-sm-7">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">R$</div>
+                            </div>
+                            <input id="payment" class="form-control" type="number" placeholder="Ex.: 20,00" min="1" step="0.50" required>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group row">  
+                    <label for="contributionTime" class="col-sm-5">Tempo de contribuição</label>
+                    <div class="col-sm-7">
+                        <select id="contributionTime" class="custom-select custom-select-sm">
+                            <!-- Options added by JavaScript function generateContribuitionDates() -->
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input id="simulate" class="btn btn-primary btn-lg text-center" type="submit" value="Simular">
+                </div>
+            </div>
+        </div>
     </form>
     
 </div>    
 
-<div id="screen2">
-    <span id="outputText"></span>
-
-    <input id="simulateAgain" type="button" value="Simular Novamente">
+<div id="screen2" class="container">
+    <div class="alert alert-success">
+        <span id="outputText"></span>
+    </div>
+    <div class="text-center">
+        <input id="simulateAgain" class="btn btn-primary btn-lg" type="button" value="Simular Novamente">
+    </div>
 
 </div>
 
