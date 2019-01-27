@@ -1,6 +1,6 @@
 # Simulador de Investimentos
 
-Aplicação que faz simulações rápidas e simples de investimos.
+Aplicação que faz simulações rápidas e simples de investimentos.
 Feito com intuito de aplicar meus conhecimentos de desenvolvimento web front end com HTML5/CSS3/JavaScript, requisições AJAX, JSON, jQuery, Bootstrap 4, responsividade e mobile-first.
 
 ## Como instalar?
@@ -29,4 +29,4 @@ Na página do simulador, preencha o formulário com seu Nome, o valor a ser inve
 
 ## Sobre o código
 
-Desenvolvido com HTML/CSS/JavaScript utilizando jQuery e Bootstrap 4. Se conecta com a [RESTful API mathjs](http://api.mathjs.com/) com o método POST para efetuar os cálculos necessários para simular os investimentos.
+Desenvolvido com HTML/CSS/JavaScript utilizando jQuery e Bootstrap 4. Se conecta de forma assíncrona com a [RESTful API mathjs](http://api.mathjs.com/) com o método POST para efetuar os cálculos necessários para simular os investimentos.
