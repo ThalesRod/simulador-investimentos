@@ -1,15 +1,52 @@
-/*
-
-input:invalid+span:after {
-  position: absolute;
-  content: '✖';
-  padding-left: 5px;
+body {
+  background-color: #74b9ff;
 }
 
-input:valid+span:after {
-  position: absolute;
-  content: '✓';
-  padding-left: 5px;
+.container {
+  padding: 10%;
 }
 
-*/
+#header {
+  display: none;
+  background-color: #0984e3;
+}
+.card .card-header {
+  background-color: #ff7675;
+}
+
+#formCard {
+  border-width: 0;
+  box-shadow: -1vh 1vh 20px;
+}
+
+#formCard label {
+  color: #2d3436;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #ff7675;
+  border-width: 0;
+}
+
+.btn:hover {
+  background-color: #d63031;
+}
+
+.btn:active {
+  background-color: #d63031;
+}
+
+.btn:focus {
+  background-color: #d63031;
+}
+
+#headerTitle {
+  color: #FFF;
+  font-weight: bold;
+}
+
+#simuladorTitle {
+  color: #FFF;
+  font-weight: bold;
+}
