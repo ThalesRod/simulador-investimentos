@@ -4,27 +4,29 @@ $(function() {
 
     function start(){
         $("#screen2").hide();
-        generateContribuitionTimeOptions();
+
+        // Generate Contribuition Time Options on index document
+        (function() {
+            for (let months = 1; months <= 60; months++) {
+                const value = months;
+                
+                // Formatting the text for each option
+                const text = Math.floor(months / 12) != 0
+                                ? Math.floor(months / 12) + " anos e " + months % 12 + " meses"
+                                : months % 12 + " meses";
+                
+                const optionElement = $("<option></option>");
+                optionElement.val(value);
+                optionElement.text(text);
+
+                $("#contributionTime").append(optionElement);
+            }
+        })();
     }
 
     function changeScreen(){
-        $("#screen1").toggle("slow");
-        $("#screen2").toggle("slow");
-    }
-
-    function generateContribuitionTimeOptions() {
-        for (let months = 1; months <= 60; months++) {
-            const value = months;
-            const text = Math.floor(months / 12) != 0
-                            ? Math.floor(months / 12) + " anos e " + months % 12 + " meses"
-                            : months % 12 + " meses";
-            
-            const optionElement = $("<option></option>");
-            optionElement.val(value);
-            optionElement.text(text);
-
-            $("#contributionTime").append(optionElement);
-        }
+        $("#screen1").slideToggle("slow");
+        $("#screen2").fadeToggle("slow");
     }
 
     $("#inputForm").on("submit", function() { 
@@ -43,27 +45,9 @@ $(function() {
             return 0;
         }
 
+        // Formatting the user input into a math expression to send for the API
         const expression = `${payment} * (((1 + ${interestRate})
         ^ ${contributionTime} - 1) / ${interestRate})`;
-
-        function formatOutput(data){
-            // Formatting for float with 2 decimals places and
-            // formatting periods to commas
-            let result = parseFloat(data["result"]);
-            result = result.toFixed(2);
-            result = result.replace(".", ",");
-
-            let payment_formatted = parseFloat(payment);
-            payment_formatted = payment_formatted.toFixed(2);
-            payment_formatted = payment_formatted.replace(".", ",");
-
-            // Formatting the query of the output
-            const output = `Olá ${name}, juntando R$ ${payment_formatted} todo mês,
-            você terá R$ ${result} em ${contributionTime_formatted}.`;
-    
-            $("#outputText").text(output);
-            $("#payment").val("");    
-        }
 
         $.ajax({
             type: 'POST',
@@ -73,10 +57,29 @@ $(function() {
 
             data: JSON.stringify( { "expr": expression } ),
 
-            success: formatOutput,
+            success: (function(data){
+                // Format the user input and the data receive
+                // by the ajax request.
+
+                // Formatting for float with 2 decimals places and
+                // formatting periods to commas
+                let result = parseFloat(data["result"]);
+                result = result.toFixed(2);
+                result = result.replace(".", ",");
+
+                let payment_formatted = parseFloat(payment);
+                payment_formatted = payment_formatted.toFixed(2);
+                payment_formatted = payment_formatted.replace(".", ",");
+
+                // Formatting the query of the output
+                const output = `Olá <strong>${name}</strong>, juntando <strong>R$ ${payment_formatted}</strong> todo mês,
+                você terá <strong>R$ ${result}</strong> em ${contributionTime_formatted}.`;
+
+                $("#outputText").html(output);
+            }),
 
             error: function (resp) {
-                $("#outputText").text("Parece que algo deu errado! Por favor, simule novamente.");
+                $("#outputText").html("<strong>Parece que algo deu errado!</strong> Por favor, simule novamente.");
             }
         });
 
