@@ -9,7 +9,7 @@ body {
 @media (min-height: 580px){
   .container {
     padding: 10vh;
-  } 
+  }
 }
 
 .card .card-header {
@@ -35,6 +35,7 @@ body {
 .btn {
   background-color: #ff7675;
   border-width: 0;
+  box-shadow: 0vh 0.45vh #8F2B2A;
 }
 
 .btn:hover {
@@ -48,6 +49,12 @@ body {
 .btn:focus {
   background-color: #d63031;
 }
+
+
+.btn-primary:active {
+  background-color: #d63031;
+}
+
 
 #simulatorTitle {
   color: #FFF;
