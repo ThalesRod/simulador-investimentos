@@ -51,7 +51,7 @@ $(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'http://api.mathjs.org/v4/',
+            url: 'https://api.mathjs.org/v4/',
             dataType: 'json',
             contentType: 'application/json',
 
