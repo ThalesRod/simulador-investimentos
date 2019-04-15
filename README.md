@@ -30,3 +30,9 @@ Na página do simulador, preencha o formulário com seu Nome, o valor a ser inve
 ## Sobre o código
 
 Desenvolvido com HTML/CSS/JavaScript utilizando jQuery e Bootstrap 4. Se conecta de forma assíncrona com a [RESTful API mathjs](http://api.mathjs.com/) com o método POST para efetuar os cálculos necessários para simular os investimentos.
+
+## O que ainda precisa ser feito?
+
+* Adicionar opção que mostra a taxa de juros e o que possa altera la
+* Adicionar algumas meta tags html para SEO.
+
