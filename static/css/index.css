@@ -22,9 +22,15 @@ body {
   }
 }
 
+#screen1 {
+  text-align: center;
+}
+
 #formCard {
   border-width: 0;
   box-shadow: -1vh 1vh 20px #383e41;
+  display: inline-block;
+  max-width: 400px;
 }
 
 #formCard label {
@@ -59,4 +65,13 @@ body {
 #simulatorTitle {
   color: #FFF;
   font-weight: bold;
+}
+
+#screen2 {
+  text-align: center;
+}
+
+#alert-outputText {
+  display: inline-block;
+  max-width: 400px;
 }
