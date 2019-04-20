@@ -33,7 +33,7 @@ Desenvolvido com HTML/CSS/JavaScript utilizando jQuery e Bootstrap 4. Se conecta
 
 ## O que ainda precisa ser feito?
 
-* Adicionar opção que mostra a taxa de juros e o que possa altera la
-* Adicionar algumas meta tags html para SEO.
-* Ajusta os nomes das datas no menu tempo de contribuição.
+- [ ] Adicionar opção que mostra a taxa de juros e o que possa altera la
+- [ ] Adicionar algumas meta tags html para SEO.
+- [ ] Ajusta os nomes das datas no menu tempo de contribuição.
 
