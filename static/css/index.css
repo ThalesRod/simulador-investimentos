@@ -22,6 +22,12 @@ body {
   }
 }
 
+#screen1 {
+  display: block;
+  text-align: center;
+  max-width: 550px;
+}
+
 #formCard {
   border-width: 0;
   box-shadow: -1vh 1vh 20px #383e41;
@@ -55,6 +61,11 @@ body {
   background-color: #d63031;
 }
 
+#screen2 {
+  display: block;
+  text-align: center;
+  max-width: 550px;
+}
 
 #simulatorTitle {
   color: #FFF;
