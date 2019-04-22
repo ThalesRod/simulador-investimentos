@@ -22,15 +22,16 @@ body {
   }
 }
 
-#screen1 {
+#screen1, #screen2 {
+  display: block;
   text-align: center;
+  max-width: 550px;
 }
+
 
 #formCard {
   border-width: 0;
   box-shadow: -1vh 1vh 20px #383e41;
-  display: inline-block;
-  max-width: 400px;
 }
 
 #formCard label {
@@ -61,17 +62,7 @@ body {
   background-color: #d63031;
 }
 
-
 #simulatorTitle {
   color: #FFF;
   font-weight: bold;
-}
-
-#screen2 {
-  text-align: center;
-}
-
-#alert-outputText {
-  display: inline-block;
-  max-width: 400px;
 }
